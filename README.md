@@ -11,9 +11,9 @@ Installasi [VSCode](https://code.visualstudio.com/download)
 Memiliki pemahaman dasar tentang HTML, CSS, dan JavaScript <br/>
 [*HTML, CSS and Javascript Refresher*](https://www.freecodecamp.org/news/html-css-and-javascript-explained-for-beginners/)<br/>
 Link [Modul HTML, CSS, Tailwind](https://github.com/Lab-RPL-ITS/modul-html-css-tailwind)
-3. **Mengenali Frontend Framework** <br/>
- Mengenal apa itu framework frontend dalam pengembangan web. Next.js adalah framework frontend yang populer untuk membangun aplikasi web berbasis React. <br/>
- Link [Modul React](https://github.com/rizqitsani/modul-lbe-rpl-2021)
+3. **Mengetahui apa itu Frontend Framework** <br/>
+ Memahami definisi apa itu framework frontend dalam pengembangan web. <br/>
+ Salah satu contoh Frontend Framework yang pernah kita ajarkan: [Modul React](https://github.com/rizqitsani/modul-lbe-rpl-2021)
 4. **Node.js Terpasang** <br/>
 Memiliki Node.js terinstall di komputer lokal. Unduh versi terbaru/ LTS dari situs web Node.js <br/>
 Installasi [NodeJS](https://nodejs.org/en/download/)
