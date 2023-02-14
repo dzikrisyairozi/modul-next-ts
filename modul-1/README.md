@@ -575,10 +575,17 @@ Secara default, aplikasi akan berjalan pada [http://localhost:3000](http://local
 
 ![Step #4](./images/4.9.jpg)
 
-## Struktur File ( New Next with App directory )
+## [Struktur File ( New Next with App directory )](https://www.youtube.com/watch?v=LT2xW6FpCNY&list=PLbVhZXO7113G-omiOz7c3i7i7NP37MikS&index=1&t=3961s)
 ## Simple Page App
 1. Layout
 2. Content
 ## Modularisasi
+
 # Challenge Buat Kalian!
+1. Membuat Landing Page sebuah website menggunakan NextJS. <br>
+*Tidak ada batasan, buat se-kreatif dan se-menarik mungkin 
+2. Mengimplementasikan service yang diajarkan pada modul 1 <br>
+*Diperbolehkan untuk Improvisasi ( dalam scope materi modul 1 )
+
+
 # Referensi
