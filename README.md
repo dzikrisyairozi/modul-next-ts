@@ -1,4 +1,4 @@
-
+_***this module will be translated to english soon***_
 # *Prerequisites* Modul *NextJS with Typescript and Tailwind*
 
 ## Apa saja yang perlu dipersiapkan?
