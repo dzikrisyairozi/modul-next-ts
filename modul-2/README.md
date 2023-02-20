@@ -34,7 +34,7 @@
 <br>
 
 # Introduction to React Forms
-
+![form](/modul-2/images/a1.png)
 ## What are React Forms?
 - React forms are a way of managing and handling user input within a React application. They allow users to submit data through a web form, which can then be processed by the application.
 - In React, forms are created using the HTML form element, and they work just like regular HTML forms. However, React provides additional features that make it easier to handle form data and user input.
@@ -311,7 +311,7 @@ In addition, React Hook Form has a small [API](https://react-hook-form.com/api/)
 - React Hook Form API 
 <br> Here's a brief overview of the React Hook Form API:
 
-image.png
+![api](/modul-2/images/api.jpeg)
 
   ### **useForm**
   <br> The `useForm` hook is used to create a form instance with all of the necessary methods and state to control the form.
@@ -702,12 +702,15 @@ In this example, we're passing the `register` function from `useForm` down to th
 ### [Further reading and resources for learning more about React and React Hook Form](https://gist.github.com/dzikrisyairozi/e0825dd857a3e822c4d0044ecab8fbc5)
 
 ## Challenge
-- Fix/ Improve the first meeting assignment based on insights from the demo with the admin
+- Fix/ Improve the first meeting assignment based on insights from demo with admin
 - Create a new page on the same application to work on the second assignment .
 - Build a **complex** form using React Hook Form based on your application idea.
-  - Create a Form Component: Create a component that will contain your form. This component will use the useForm hook from React Hook Form.
-  - Define Form Fields: Define the form fields in the component using the register method from React Hook Form. You can use the register method to define input fields, select boxes, radio buttons, checkboxes, and more.
-  - Define Validation Rules: You can define validation rules for your form fields using the yup or joi validation library. React Hook Form integrates well with these libraries.
-  - Handle Form Submit: Define a function to handle the form submit event using the handleSubmit method from React Hook Form. This function will receive the form data as an argument.
-  - Display Form Errors: React Hook Form provides an easy way to display form errors using the errors object.
-
+  - **Create a Form Component**: Create a component that will contain your form. This component will use the useForm hook from React Hook Form.
+  - **Define Form Fields**: Define the form fields in the component using the register method from React Hook Form. You can use the register method to define input fields, select boxes, radio buttons, checkboxes, and more.
+  - **Define Validation Rules**: You can define validation rules for your form fields using the yup or joi validation library. React Hook Form integrates well with these libraries.
+  - **Handle Form Submit**: Define a function to handle the form submit event using the handleSubmit method from React Hook Form. This function will receive the form data as an argument.
+  - **Display Form Errors**: React Hook Form provides an easy way to display form errors using the errors object.
+<br>
+<br>
+## An Example of a Complex Form, check in [_here_](https://form-example-nine.vercel.app/)
+![](/modul-2/images/c1.jpeg)

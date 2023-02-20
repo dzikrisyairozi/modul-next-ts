@@ -1,4 +1,3 @@
-
 # *Prerequisites* Modul *NextJS with Typescript and Tailwind*
 
 ## Apa saja yang perlu dipersiapkan?
