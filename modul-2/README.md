@@ -12,16 +12,15 @@
     - [Controlling form inputs in React](#controlling-form-inputs-in-react)
     - [Validation and error handling](#validation-and-error-handling)
 - [Introduction to React Hook Form](#introduction-to-react-hook-form)
+    - [What is React Hook Form?](#what-is-react-hook-form)
     - [Setting up a Next.js and TypeScript project](#setting-up-a-next.js-and-typescript-project)
     - [Building a form in a Next.js and TypeScript environment using React Hook Form](#building-a-form-in-a-next.js-and-typescript-environtment-using-react-hook-form)
-- [Conclusion and Next Steps](#challenge-buat-kalian)
-    - [Recap of what we have learned](#challenge-buat-kalian)
-    - [Tips and best practices for building forms using React Hook Form](#challenge-buat-kalian)
-    - [Further reading and resources for learning more about React and React Hook Form](#challenge-buat-kalian)
-- [Challenge](#referensi)
-    - [Build a complex form using React Hook Form in a Next.js and TypeScript environment](#referensi)
-    - [Implement form validation and error handling](#referensi)
-    - [Handle conditional rendering and form submission](#referensi)
+- [Conclusion and Next Steps](#conclusion-and-next-steps)
+    - [Recap of what we have learned](#recap-of-what-we-have-learned)
+    - [Tips and best practices for building forms using React Hook Form](#tips-and-best-practices-for-building-forms-using-react-hook-form)
+    - [Further reading and resources for learning more about React and React Hook Form](#)
+- [Challenge](#challenge)
+
 
 <br>
 
@@ -293,6 +292,8 @@ In this example, we use the `&&` operator to conditionally render the error mess
 This is just one example of how you can add validation and error handling to a form in a Next.js and TypeScript environment. Depending on the complexity of your form, you may need to add additional validation checks and error messages.
 
 ## Introduction to React Hook Form
+
+### What is React Hook Form?
 [React Hook Form](https://react-hook-form.com/) is a lightweight library for building forms in React using hooks. It is designed to be easy to use, flexible, and performant, with a focus on minimizing the amount of code required to build and validate forms.
 
 One of the main benefits of React Hook Form is that it is based on uncontrolled inputs. This means that the form inputs are not managed by the library, but by the DOM itself. As a result, the library is able to avoid some of the performance issues that can arise with other form libraries that rely on controlled inputs.
@@ -305,9 +306,408 @@ React Hook Form also provides a number of built-in features for building and val
 - Error handling and display of error messages
 - Integration with third-party libraries such as Material UI and Formik
 
-In addition, React Hook Form has a small API and is easy to learn, making it a great choice for both small and large-scale projects. By minimizing the amount of code required to build forms, React Hook Form can help to reduce development time and improve overall code quality.
+In addition, React Hook Form has a small [API](https://react-hook-form.com/api/) and is easy to learn, making it a great choice for both small and large-scale projects. By minimizing the amount of code required to build forms, React Hook Form can help to reduce development time and improve overall code quality.
 
-Overall, React Hook Form is a powerful library for building forms in React, with a focus on simplicity, performance, and ease-of-use. If you are looking for a lightweight and flexible solution for building and validating forms in React, React Hook Form is definitely worth considering.
+- React Hook Form API 
+<br> Here's a brief overview of the React Hook Form API:
+
+image.png
+
+  ### **useForm**
+  <br> The `useForm` hook is used to create a form instance with all of the necessary methods and state to control the form.
+
+  ```tsx
+    const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>();
+  ```
+  - The useForm hook takes an optional configuration object with the following options:
+      -  `defaultValues`: An object of default values for the form fields.
+      -  `mode`: A string specifying the mode for the form validation. Can be set to '`onChange`',   '`onBlur`', or - '`onSubmit`'.
+      - `resolver`: A resolver function for validating the form data. Must return a Promise with an object of errors, or an empty object if there are no errors.
+
+  1. **register** <br>
+  The `register` function is used to register an input field with the form instance. It returns an object with the ref and name properties that are used to bind the input field to the form.
+
+  ```tsx
+  <input type="text" {...register("firstName", { required: true })} />
+  ```
+
+  - The first argument of register is the name of the input field, and the second argument is an object of validation rules.
+
+  2. **watch** <br>
+  A function that returns the current value of one or more fields, and subscribes to changes in those fields. You can use this function to monitor changes to the values of input fields, and to trigger side effects based on those changes. You can pass the name of a single field, an array of field names, or nothing to watch all fields.
+
+  ```tsx
+  const { register, handleSubmit, watch } = useForm();
+
+  // Register the firstName and lastName fields
+  const firstNameRef = register("firstName");
+  const lastNameRef = register("lastName");
+
+  // Watch for changes to the firstName and lastName fields
+  const firstNameValue = watch("firstName");
+  const lastNameValue = watch("lastName");
+
+  ``` 
+  In the example above, we use `watch` to get the current values of the `firstName` and `lastName` fields, and store them in `firstNameValue` and `lastNameValue`, respectively. We can then use these values to trigger side effects, such as updating the UI or making API calls.
+
+  3. **formState** <br>
+  An object that contains the current state of the form. This object includes properties such as `dirty`, `isSubmitted`, and `isValid`. You can use this object to display error messages, disable form controls, and more.
+
+  ```tsx
+  import { useForm } from "react-hook-form";
+
+  type FormInputs = {
+    test: string
+  }
+
+  export default function App() {
+    const {
+      register,
+      handleSubmit,
+      // Read the formState before render to subscribe the form state through Proxy
+      formState: { errors, isDirty, isSubmitting, touchedFields, submitCount },
+    } = useForm<FormInputs>();
+    const onSubmit = (data: FormInputs) => console.log(data);
+
+    return (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("test")} />
+        <input type="submit" />
+      </form>
+    );
+  }
+
+  ``` 
+
+  4. **handleSubmit** <br>
+  The `handleSubmit` function is used to handle the form submission. It takes a callback function that is called with the form data when the form is submitted.
+  ```tsx
+  const onSubmit = (data: FormValues) => console.log(data);
+
+  <form onSubmit={handleSubmit(onSubmit)}>
+
+  ```
+
+  5. **errors** <br>
+  The errors object contains any validation errors for the input fields. It is accessed through the formState object.
+    ```tsx
+    const {
+    formState: { errors },
+  } = useForm<FormValues>();
+
+  {errors.firstName && <span>This field is required</span>}
+  ```
+
+  6. **reset** <br>
+  The `reset` function is used to reset the form to its initial values. It can be called with an optional object of default values.
+
+  ```tsx
+    const {
+    formState: { isSubmitting },
+    reset,
+  } = useForm<FormValues>();
+
+  const onSubmit = (data: FormValues) => {
+    console.log(data);
+    reset();
+  };
+  ```
+
+  7. **setError** <br>
+  The `setError` function is used to manually set an error for an input field. It takes the name of the field and an object with the `type` and `message` properties.
+  ```tsx
+  const {
+    setError,
+    clearErrors,
+  } = useForm<FormValues>();
+
+  setError("firstName", { type: "required", message: "This field is required" });
+  ```
+
+  8. **clearErrors** <br>
+  The `clearErrors` function is used to clear the errors for an input field. It takes the name of the field.
+  ```tsx
+    const {
+    clearErrors,
+  } = useForm<FormValues>();
+
+  clearErrors("firstName");
+  ```
+
+  9. **setValue**  <br>
+   Used to set the value of an input field.
+  ```tsx
+    const {
+    register,
+    setValue,
+    handleSubmit,
+  } = useForm<FormValues>();
+
+  // Set the value of the firstName field
+  setValue("firstName", "John");
+
+  // Register the firstName field
+  <input type="text" {...register("firstName")} />
+
+  // Handle the form submission
+  const onSubmit = (data: FormValues) => console.log(data);
+  <form onSubmit={handleSubmit(onSubmit)}>
+  ```
+  
+  10. **trigger** <br>
+  A function that manually triggers validation for one or more fields. You can use this function to force validation for fields that are not currently dirty or have not yet been touched by the user.
+
+  ```tsx
+  const { register, handleSubmit, trigger } = useForm();
+
+  // Register the email and password fields
+  const emailRef = register("email", { required: true, pattern: /^\S+@\S+$/i });
+  const passwordRef = register("password", { required: true, minLength: 8 });
+
+  // Validate the form when the user clicks a custom "Validate" button
+  const handleValidate = async () => {
+    const isValid = await trigger();
+    console.log("Form is valid:", isValid);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input type="email" name="email" ref={emailRef} />
+      <input type="password" name="password" ref={passwordRef} />
+      <button type="button" onClick={handleValidate}>
+        Validate
+      </button>
+      <button type="submit">Submit</button>
+    </form>
+  );
+
+ ``` 
+ 
+ In the example above, we use `trigger` to manually validate the entire form when the user clicks a custom "Validate" button. We await the result of `trigger`, which is a boolean indicating whether the form is currently valid. We then log this value to the console.
 
 ### Setting up a Next.js and TypeScript project
+
 - You can check how to setting up the project in [here](https://github.com/dzikrisyairozi/modul-next-ts/tree/main/modul-1#inisiasi-proyek)
+
+### Building a form in a Next.js and TypeScript environment using React Hook Form
+
+- Basic Form
+
+```tsx
+import React from 'react'
+import { useForm } from 'react-hook-form'
+
+type FormValues = {
+    firstName: string,
+    lastName: string,
+    email: string,
+    phoneNumber: number,
+    gender: string,
+    isAdmin: boolean,
+
+}
+
+export default function Register() {
+    const {register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+
+    return (
+        <>
+            <main className='bg-gray-800'>
+                <section className='flex justify-center min-h-screen items-center'>
+                    <form onSubmit={handleSubmit((data)=>{
+                        console.log(data);
+                    })} className='flex flex-col  gap-y-3'>
+                        <p className='text-white font-semibold text-2xl'>React Hook Form</p>
+
+                        <input type='text' {...register("firstName")} placeholder='First Name'  /> 
+                        <input type='text' {...register("lastName",)} placeholder='Last Name'  />
+                        <input type="email"{...register("email",)}  placeholder="Email"  />
+                        <input type="tel" {...register("phoneNumber",)} placeholder="Phone Number"  />
+                        <label htmlFor="Gender">Gender</label>
+                        <select {...register("gender")}>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label htmlFor="isAdmin">Admin RPL 2023?</label>
+                        <div className='flex gap-3'>
+                            <label htmlFor="">Yes</label>
+                            <input {...register("isAdmin")} type="radio" value="Yes" />
+                            <label htmlFor="">No</label>
+                            <input {...register("isAdmin")} type="radio" value="No" />
+                        </div>
+                        <input type="submit" className='rounded w-[384px] h-[48px] cursor-pointer bg-pink-300'/>
+                    </form>
+                </section>
+            </main>
+    )
+}
+```
+
+- Form with Validation
+
+```tsx
+            <main className='bg-gray-800'>
+                <section className='flex justify-center min-h-screen items-center'>
+                    <form onSubmit={handleSubmit((data)=>{
+                        console.log(data);
+                    })} className='flex flex-col  gap-y-3'>
+                        <p className='text-white font-semibold text-2xl'>React Hook Form</p>
+
+                        <input type='text' {...register("firstName", {
+                          required: true, 
+                          minLength: 4
+                        })} placeholder='First Name'  /> 
+                        <input type='text' {...register("lastName",)} placeholder='Last Name'  />
+                        <input type="email"{...register("email", {
+                          required: true, 
+                          pattern: /^\S+@\S+$/i
+                          }
+                        )}  placeholder="Email"  />
+                        <input type="tel" {...register("phoneNumber",{
+                          required: true, 
+                          minLength:10, 
+                          maxLength: 12
+                          }
+                        )} placeholder="Phone Number"  />
+                        <label htmlFor="Gender" >Gender</label>
+                        <select {...register("gender", { required: true })}>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label htmlFor="isAdmin" >Admin RPL 2023?</label>
+                        <div className='flex gap-3'>
+                            <label htmlFor="" >Yes</label>
+                            <input {...register("isAdmin", { required: true })} type="radio" value="Yes" />
+                            <label htmlFor="" >No</label>
+                            <input {...register("isAdmin", { required: true })} type="radio" value="No" />
+                        </div>
+                        <input type="submit" className='rounded w-[384px] h-[48px] cursor-pointer bg-pink-300'/>
+                    </form>
+                </section>
+            </main>
+```
+
+- Showing Error
+```tsx
+
+const {register, handleSubmit, formState: { errors } } = useForm<FormValues>
+
+console.log("errors", errors);
+
+<input type='text' {...register("firstName", {required: true, minLength: 4})} placeholder='First Name'  /> 
+<p >{errors.firstName?.message}</p>
+<input type="email"{...register("email", {required: true, pattern: /^\S+@\S+$/i})}placeholder="Email"  />  
+<p >{errors.email?.message}</p>
+```
+
+- Modularisation
+
+```tsx
+    register('firstName', {
+        required: {
+            value: true,
+            message: "This is required!"
+        } 
+    });
+
+
+  <input type='text' {...register("firstName")} placeholder='First Name'  /> 
+
+```
+
+- Create a functional component with fully customization for our own Input Form
+
+```tsx
+import React, { FC } from "react";
+import { FieldValues, UseFormRegister } from "react-hook-form";
+
+interface InputProps {
+  label: string;
+  name: string;
+  register: UseFormRegister<FieldValues>;
+}
+
+const Input: FC<InputProps> = ({ label, name, register }) => {
+  return (
+    <div>
+      <label htmlFor={name}>{label}</label>
+      <input {...register(name)} id={name} />
+    </div>
+  );
+};
+
+export default Input;
+```
+
+In this example, we're using the `UseFormRegister` type from react-hook-form to get the `register` function that we need to bind the input to the form. We're also passing in the `label` and `name` props to label the input and give it a unique name to reference it in the form.
+
+We can then use this component in our form like this:
+```tsx
+import React from "react";
+import { useForm } from "react-hook-form";
+import Input from "./Input";
+
+interface FormValues {
+  firstName: string;
+  lastName: string;
+}
+
+const App = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+
+  const onSubmit = (data: FormValues) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Input label="First Name" name="firstName" register={register} />
+      <Input label="Last Name" name="lastName" register={register} />
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default App;
+
+```
+
+In this example, we're passing the `register` function from `useForm` down to the `Input` component, which uses it to bind the input to the form. We're also defining our form values interface and using it to type the `data` parameter in the `onSubmit` function.
+
+### More advanced way to create an [Input Component](https://gist.github.com/dzikrisyairozi/05f36d85028ec733c9296aa9a61e6eb8) *!important*
+
+
+## Conclusion and Next Steps
+
+### Recap of what we have learned
+- Create a simple Form
+- Basic handling, controlling, and handling in a simple Form
+- Fundamental of React Hook Form
+  - React Hook Form API
+- Implementing React Hook Form in NextJS and Typescript Environment
+- Create a Functional Component for our Form
+
+### [Tips and best practices for building forms using React Hook Form](https://gist.github.com/dzikrisyairozi/fba1c1d7cf6b80a339970274b952b109)
+
+### [Further reading and resources for learning more about React and React Hook Form](https://gist.github.com/dzikrisyairozi/e0825dd857a3e822c4d0044ecab8fbc5)
+
+## Challenge
+- Fix/ Improve the first meeting assignment based on insights from the demo with the admin
+- Create a new page on the same application to work on the second assignment .
+- Build a **complex** form using React Hook Form based on your application idea.
+  - Create a Form Component: Create a component that will contain your form. This component will use the useForm hook from React Hook Form.
+  - Define Form Fields: Define the form fields in the component using the register method from React Hook Form. You can use the register method to define input fields, select boxes, radio buttons, checkboxes, and more.
+  - Define Validation Rules: You can define validation rules for your form fields using the yup or joi validation library. React Hook Form integrates well with these libraries.
+  - Handle Form Submit: Define a function to handle the form submit event using the handleSubmit method from React Hook Form. This function will receive the form data as an argument.
+  - Display Form Errors: React Hook Form provides an easy way to display form errors using the errors object.
+
