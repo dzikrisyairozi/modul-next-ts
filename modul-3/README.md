@@ -735,5 +735,8 @@ Kindly check in [here](https://gist.github.com/dzikrisyairozi/729bc242792f2ee668
     - Error handling and loading state
     - Pagination and caching ( if using React Query )
 - Bonus points for implementing dynamic routing. [ OPTIONAL ]
+- Improvisations are welcomed!
 
-List of API you can use: [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
+Example of list of API you can use: [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
+
+Using APIs outside of the example are allowed ( RapidAPI, TMDb, NASA API, etc ) -> no limitation
