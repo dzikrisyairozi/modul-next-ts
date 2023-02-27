@@ -727,3 +727,13 @@ Kindly check in [here](https://gist.github.com/dzikrisyairozi/2718b22d723e71f762
 Kindly check in [here](https://gist.github.com/dzikrisyairozi/729bc242792f2ee66812287dd97bd923)
 
 ## **Challenge**
+- Fix/ Improve the second meeting assignment based on insights from demo with admin.
+- Find and use the appropriate API service for the application you are implementing.
+- You can use one or more services (there are no limits).
+- Create a component to receive the data that will be used, and use the axios/fetch library or react-query as a means of data fetching. 
+    - Handling data
+    - Error handling and loading state
+    - Pagination and caching ( if using React Query )
+- Bonus points for implementing dynamic routing. [ OPTIONAL ]
+
+List of API you can use: [https://github.com/public-apis/public-apis](https://github.com/public-apis/public-apis)
