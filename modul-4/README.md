@@ -7,17 +7,12 @@
     - [Why is unit testing important?](#)
     - [Benefits of unit testing](#)
 - [Environment Setup](#)
-    - [Overview of Jest, React Testing Library, and Cypress](#)
+    - [Overview of Jest, React Testing Library](#)
     - [Configuring the testing framework](#)
 - [Writing Unit Tests with Jest and React Testing Library](#)
     - [Basic unit tests using Jest](#)
     - [Testing components and pages in NextJS using React Testing Library](#)
     - [Testing API endpoints with Jest and mocking dependencies](#)
-- [Writing End-to-End Tests with Cypress](#g)
-    - [Understanding end-to-end testing](#)
-    - [Writing end-to-end tests using Cypress](#)
-    - [Testing user interactions and scenarios](#)
-    - [Handling authentication and authorization](#)
 - [Best Practices for Unit Testing](#get-started)
     - [Writing maintainable and reliable unit tests](#)
     - [Choosing the right test cases](#)
@@ -128,8 +123,6 @@ module.exports = {
 ```
 
 - That's it! With these steps, you should now have Jest installed and configured for your Next.js TypeScript project. You can now write and run unit tests for your project using Jest.
-
-**Cypress**
 
 ## **Writing Unit Tests with Jest and React Testing Library**
 
@@ -353,16 +346,19 @@ expect(posters).toHaveLength(2);
 ```
   - Specifically, the assertions check if the Popular Movies text is in the document and if the number of movie posters displayed on the page matches the number of movies in the sample 'movies' object.
 
-- [Writing End-to-End Tests with Cypress](#g)
-    - [Understanding end-to-end testing](#)
-    - [Writing end-to-end tests using Cypress](#)
-    - [Testing user interactions and scenarios](#)
-    - [Handling authentication and authorization](#)
-- [Best Practices for Unit Testing](#get-started)
-    - [Writing maintainable and reliable unit tests](#)
-    - [Choosing the right test cases](#)
-    - [Using test coverage tools](#)
-- [Conclusion](#)
-    - [Recap of key concepts](#)
-    - [Next steps in learning unit testing in a NextJS and TypeScript environment using Jest and React Testing Library](#)
-- [Challenge](#challenge)
+## **Best Practices for Unit Testing**
+
+### **Writing maintainable and reliable unit tests**
+
+### **Choosing the right test cases**
+
+### **Using test coverage tools**
+
+## **Conclusion**
+
+### **Recap of key concepts**
+
+### **Next steps in learning unit testing in a NextJS and TypeScript environment using Jest and React Testing Library**
+
+## **Challenge**
+
