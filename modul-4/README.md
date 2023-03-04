@@ -2,14 +2,7 @@
 
 # Table of contents
 
-- [Deployment](#)
-    - [What is the Deployment?](#)
-    - [Why would We Deploy?](#)
-    - [When to Deploy?](#)
-    - [Where to Deploy?](#)
-    - [Who can Deploy?](#)
-    - [How to Deploy?](#)
-- [Introduction to Unit Testing](#)
+- [Introduction](#)
     - [What is unit testing?](#)
     - [Why is unit testing important?](#)
     - [Benefits of unit testing](#)
@@ -24,59 +17,18 @@
     - [Writing maintainable and reliable unit tests](#)
     - [Choosing the right test cases](#)
     - [Using test coverage tools](#)
+- [Deployment](#)
+    - [What is the Deployment?](#)
+    - [Why would We Deploy?](#)
+    - [When to Deploy?](#)
+    - [Where to Deploy?](#)
+    - [Who can Deploy?](#)
+    - [How to Deploy?](#)
 - [Conclusion](#)
     - [Recap of key concepts](#)
     - [Next steps in learning unit testing in a NextJS and TypeScript environment using Jest and React Testing Library](#)
 - [Challenge](#challenge)
 
-## **Deployment**
-### **What is the Deployment?**
-Deploying a website involves copying the website's files and data from a local development environment to a production server. This process can include configuring web servers, setting up databases, and configuring any necessary software dependencies. The deployment process can vary depending on the technology stack used to build the website, the hosting provider, and the requirements of the project.
-### **Why would We Deploy?**
-We deploy a website so that people can access it through their web browsers from anywhere in the world. By deploying a website, we make it available on the internet and enable users to interact with its content. This is important because it allows businesses and individuals to reach a wider audience, share information and services, and build an online presence. 
-### **When to Deploy?**
-We deploy a website when it is ready to be published and made available to the public. This typically occurs after the website has been designed, developed, and thoroughly tested in a staging environment. The staging environment is a test environment that closely resembles the production environment, but is not publicly accessible. Once the website has been tested in the staging environment and any issues have been resolved, it is ready for deployment.
-### **Who can Deploy?**
-Website deployment can be performed by anyone who has the necessary skills and access to the website's hosting environment. Typically, website deployment is performed by web developers, system administrators, or DevOps engineers who have experience with the technologies and tools used to build and deploy websites.
-
-In some cases, website owners or content creators may also perform deployment tasks, such as updating content or uploading files to the hosting environment. However, more complex deployment tasks, such as configuring servers or setting up databases, are usually left to professionals with specialized skills.
-### **Where to Deploy?**
-NextJS applications can be deployed to a variety of hosting platforms. Here are some popular options:
-
-1. **Vercel**: Vercel is a cloud hosting platform that specializes in hosting Next.js applications. It offers features such as automatic deployments, serverless functions, and built-in analytics.
-
-2. **Heroku**: Heroku is a cloud platform that supports many programming languages, including Node.js. It offers easy deployment through its web interface or command-line interface.
-
-3. **AWS**: Amazon Web Services (AWS) is a cloud platform that offers a range of services for hosting applications. It supports various deployment options for Next.js applications, such as AWS Elastic Beanstalk or AWS Lambda.
-
-4. **Google Cloud Platform**: Google Cloud Platform offers several services for hosting Next.js applications, including App Engine, Compute Engine, and Kubernetes Engine.
-
-5. **Netlify**: Netlify is a popular platform for deploying static websites and offers built-in features for hosting Next.js applications. It offers easy deployment and continuous integration with GitHub or GitLab.
-
-These are just a few options for hosting Next.js applications. The choice of hosting platform will depend on factors such as budget, scalability requirements, deployment needs, and the level of support required.
-### **How to Deploy?**
-Deploying a Next.js website to Vercel is a straightforward process that involves a few steps:
-1. Create a Vercel account: If you haven't already, create an account on Vercel's website.
-2. Install the Vercel CLI: The Vercel CLI is a command-line tool that allows you to deploy your Next.js application to Vercel. Install it by running the following command in your terminal:
-```lua
-npm install -g vercel
-```
-3. Connect your Next.js application to Vercel: Navigate to your Next.js project directory in the terminal and run the following command:
-```lua
-vercel login
-```
-- Follow the prompts to log in to your Vercel account and link your project.
-4. Deploy your Next.js application: To deploy your application to Vercel, run the following command in your terminal:
-```lua
-vercel
-```
-- This will start the deployment process, which may take a few minutes. Once the deployment is complete, you'll be given a URL where you can access your website.
-
-### or
-
-<br>
-You can also set up automatic deployments on Vercel by connecting your project to a Git repository and configuring a deployment trigger.
-<br>
 
 ## **Introduction**
 
@@ -411,13 +363,63 @@ Unit tests are a critical part of software development. They help ensure that co
 Choosing the right test cases is crucial for ensuring the quality of software. [Here](https://gist.github.com/dzikrisyairozi/e5b0217d84008f81ab77228a98c971e9#file-righttestcase-md) are some tips for choosing the right test cases:
 ### **Using test coverage tools**
 Test coverage tools are a valuable resource for ensuring that your code is thoroughly tested. These tools help you identify which parts of your code are covered by your tests and which parts are not. [Here](https://gist.githubusercontent.com/dzikrisyairozi/e5b0217d84008f81ab77228a98c971e9/raw/a87b80f28ac4ad57a556add2168cf3f8ebee69d9/testCoverageTools.ts) are some tips for using test coverage tools effectively:
+
+## **Deployment**
+### **What is the Deployment?**
+Deploying a website involves copying the website's files and data from a local development environment to a production server. This process can include configuring web servers, setting up databases, and configuring any necessary software dependencies. The deployment process can vary depending on the technology stack used to build the website, the hosting provider, and the requirements of the project.
+### **Why would We Deploy?**
+We deploy a website so that people can access it through their web browsers from anywhere in the world. By deploying a website, we make it available on the internet and enable users to interact with its content. This is important because it allows businesses and individuals to reach a wider audience, share information and services, and build an online presence. 
+### **When to Deploy?**
+We deploy a website when it is ready to be published and made available to the public. This typically occurs after the website has been designed, developed, and thoroughly tested in a staging environment. The staging environment is a test environment that closely resembles the production environment, but is not publicly accessible. Once the website has been tested in the staging environment and any issues have been resolved, it is ready for deployment.
+### **Who can Deploy?**
+Website deployment can be performed by anyone who has the necessary skills and access to the website's hosting environment. Typically, website deployment is performed by web developers, system administrators, or DevOps engineers who have experience with the technologies and tools used to build and deploy websites.
+
+In some cases, website owners or content creators may also perform deployment tasks, such as updating content or uploading files to the hosting environment. However, more complex deployment tasks, such as configuring servers or setting up databases, are usually left to professionals with specialized skills.
+### **Where to Deploy?**
+NextJS applications can be deployed to a variety of hosting platforms. Here are some popular options:
+
+1. **Vercel**: Vercel is a cloud hosting platform that specializes in hosting Next.js applications. It offers features such as automatic deployments, serverless functions, and built-in analytics.
+
+2. **Heroku**: Heroku is a cloud platform that supports many programming languages, including Node.js. It offers easy deployment through its web interface or command-line interface.
+
+3. **AWS**: Amazon Web Services (AWS) is a cloud platform that offers a range of services for hosting applications. It supports various deployment options for Next.js applications, such as AWS Elastic Beanstalk or AWS Lambda.
+
+4. **Google Cloud Platform**: Google Cloud Platform offers several services for hosting Next.js applications, including App Engine, Compute Engine, and Kubernetes Engine.
+
+5. **Netlify**: Netlify is a popular platform for deploying static websites and offers built-in features for hosting Next.js applications. It offers easy deployment and continuous integration with GitHub or GitLab.
+
+These are just a few options for hosting Next.js applications. The choice of hosting platform will depend on factors such as budget, scalability requirements, deployment needs, and the level of support required.
+### **How to Deploy?**
+Deploying a Next.js website to Vercel is a straightforward process that involves a few steps:
+1. Create a Vercel account: If you haven't already, create an account on Vercel's website.
+2. Install the Vercel CLI: The Vercel CLI is a command-line tool that allows you to deploy your Next.js application to Vercel. Install it by running the following command in your terminal:
+```lua
+npm install -g vercel
+```
+3. Connect your Next.js application to Vercel: Navigate to your Next.js project directory in the terminal and run the following command:
+```lua
+vercel login
+```
+- Follow the prompts to log in to your Vercel account and link your project.
+4. Deploy your Next.js application: To deploy your application to Vercel, run the following command in your terminal:
+```lua
+vercel
+```
+- This will start the deployment process, which may take a few minutes. Once the deployment is complete, you'll be given a URL where you can access your website.
+
+### or
+
+<br>
+You can also set up automatic deployments on Vercel by connecting your project to a Git repository and configuring a deployment trigger.
+<br>
+
 ## **Conclusion**
 
 ### **Recap of key concepts**
-  - Deployment
   - Basic unit tests using Jest
   - Testing components and pages in NextJS using React Testing Library
   - Testing API endpoints with Jest and mocking dependencies
+  - Deployment
 ### **Next steps in learning unit testing in a NextJS and TypeScript environment using Jest and React Testing Library**
 - Read Documentation **!always**
 
