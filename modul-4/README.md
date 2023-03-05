@@ -10,6 +10,7 @@
     - [Overview of Jest, React Testing Library](#)
     - [Configuring the testing framework](#)
 - [Writing Unit Tests with Jest and React Testing Library](#)
+    - [Pre-Hands On](#)
     - [Basic unit tests using Jest](#)
     - [Testing components and pages in NextJS using React Testing Library](#)
     - [Testing API endpoints with Jest and mocking dependencies](#)
@@ -62,6 +63,8 @@ Unit testing is important for several reasons:
 
 ### **Overview of Jest, React Testing Library, and Cypress**
 Jest, React Testing Library, and Cypress are popular testing frameworks for JavaScript applications. Here's a brief overview of each of these frameworks:
+
+![#](./images/6.png)
 
 1. **Jest**: Jest is a testing framework developed by Facebook. It is commonly used to test JavaScript code, including React applications. Jest provides a simple and intuitive API for writing tests, and comes with built-in features such as mocking, code coverage reporting, and snapshot testing.
 
@@ -135,6 +138,73 @@ module.exports = {
 ## **Writing Unit Tests with Jest and React Testing Library**
 
 ![#](./images/5.png)
+
+### **Pre-Hands On**
+
+#### **Test Structure**
+
+1. **Describe** <br>
+ In this section, we define one or several features or units to be tested in a testing block. For example:
+ ```tsx
+ describe('Testing User API', () => {
+  // code for tests
+})
+```
+2. **Test** <br>
+In this section, we write one or several tests to be performed on the unit or feature defined in the "describe" section. For example:
+```tsx
+test('Get user by ID', async () => {
+  // code for test
+})
+```
+3. **Expect** <br>
+In this section, we evaluate the result of the test by using the "expect" statement which compares the actual value with the expected value. For example:
+```tsx
+expect(result).toBe(expectedValue);
+```
+You can check list of matchers in [here](https://jestjs.io/docs/expect)
+
+- By using this structure, we can write and organize our tests effectively and ensure that they cover all the necessary features and units of our application.
+
+#### **Mock Function**
+A mock function is a test double that allows us to replace a real function or module with a custom implementation that we define. It is often used in unit testing to isolate and test specific parts of an application without relying on other dependencies or external systems. Mock functions can also help us simulate different scenarios or behaviors that may be difficult or impossible to achieve in a real-world environment.
+
+Here's an example of using mock functions in Jest and TypeScript:
+
+Suppose we have a simple function called "`getUsers`" that fetches user data from an API:
+```tsx
+// users.ts
+import axios from 'axios';
+
+export const getUsers = async (): Promise<User[]> => {
+  const response = await axios.get('https://my-api.com/users');
+  return response.data;
+};
+```
+
+To test this function, we can use a mock function to replace the "`axios.get`" method with a custom implementation that returns a static user data:
+
+```tsx
+// users.test.ts
+import { getUsers } from './users';
+
+jest.mock('axios', () => ({
+  get: jest.fn().mockResolvedValue({
+    data: [{ id: 1, name: 'John Doe' }, { id: 2, name: 'Jane Doe' }],
+  }),
+}));
+
+describe('getUsers', () => {
+  it('should return an array of users', async () => {
+    const users = await getUsers();
+    expect(users).toEqual([{ id: 1, name: 'John Doe' }, { id: 2, name: 'Jane Doe' }]);
+  });
+});
+```
+
+In this example, we use the "`jest.mock`" method to create a mock implementation of the "`axios.get`" method that returns a static user data. Then, we call the "`getUsers`" function and expect it to return the same data.
+
+By using a mock function, we can test the "`getUsers`" function in isolation and ensure that it works as expected without relying on the real "`axios.get`" method or external API. We can also use mock functions to simulate different scenarios, such as error responses or slow network connections, to test the resilience and error-handling capabilities of our application.
 
 ### **Basic unit tests using Jest**
 
