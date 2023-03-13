@@ -494,7 +494,7 @@ You can also set up automatic deployments on Vercel by connecting your project t
 - Read Documentation **!always**
 
 ## **Challenge**
-  - Fix/ Improve the second meeting assignment based on insights from demo with admin.
+  - Fix/ Improve the third meeting assignment based on insights from demo with admin.
   - Unit Test your Components
   - Unit Test your Pages
   - Testing API endpoints
